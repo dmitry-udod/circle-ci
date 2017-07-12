@@ -1,7 +1,10 @@
 version: 2
 
 jobs:
-  build:    
+  build:
+    docker:
+      - image: notnoopci/php:7.1.5-browsers
+    working_directory: ~/laravel
     steps:
       - checkout      
       - run: composer self-update
