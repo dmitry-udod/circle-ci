@@ -16,6 +16,5 @@ jobs:
       - save_cache:
           key: composer-v1-{{ checksum "composer.json" }}
           paths:
-            - vendor            
-      - run: php artisan key:generate
+            - vendor                  
       - run: ./vendor/bin/phpunit      
