@@ -1,0 +1,22 @@
+machine:
+  timezone:
+    Europe/Kiev
+
+  node:
+    version: 6
+
+  services:
+    - postgresql
+
+  php:
+    version: 7.1.2
+
+dependencies:
+  override:
+    - composer install
+    - yarn
+
+test:
+  override:
+    - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
+    - ./vendor/bin/phpunit --colors --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml -c phpunit_feature_unit_only_circleci.xml
